@@ -64,14 +64,27 @@ jobs:
           }
         shell: powershell
 
+      - name: Find MSBuild with vswhere
+        id: msbuild
+        run: |
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          if (Test-Path $vswhere) {
+            $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\Current\Bin\MSBuild.exe
+            if ($msbuild) {
+              echo "path=$msbuild" >> $env:GITHUB_OUTPUT
+            }
+          }
+        shell: powershell
+
       - name: Build Windows (MSBuild)
         run: |
-          # Build using MSBuild directly on the solution
-          $msbuild = "${env:ProgramFiles}\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
-          if (-not (Test-Path $msbuild)) {
-            $msbuild = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
+          $msbuild = "${{ steps.msbuild.outputs.path }}"
+          if (-not $msbuild -or -not (Test-Path $msbuild)) {
+            Write-Error "MSBuild not found!"
+            exit 1
           }
           $outDir = "${env:GITHUB_WORKSPACE}/windows/AppPackages/"
+          New-Item -ItemType Directory -Force -Path $outDir | Out-Null
           & $msbuild windows/Orchestra.sln -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$outDir" -v:m
         shell: powershell
 
