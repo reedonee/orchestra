@@ -85,7 +85,14 @@ jobs:
           }
           $outDir = "${env:GITHUB_WORKSPACE}/windows/AppPackages/"
           New-Item -ItemType Directory -Force -Path $outDir | Out-Null
-          & $msbuild windows/Orchestra.sln -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$outDir" -v:m
+          # Use forward slashes and verify file exists
+          $slnPath = "${env:GITHUB_WORKSPACE}/windows/Orchestra.sln"
+          if (-not (Test-Path $slnPath)) {
+            Write-Error "Solution file not found at: $slnPath"
+            Get-ChildItem -Path "${env:GITHUB_WORKSPACE}/windows/" -Recurse | Where-Object { $_.Extension -eq '.sln' } | ForEach-Object { Write-Host "Found: $($_.FullName)" }
+            exit 1
+          }
+          & $msbuild $slnPath -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$outDir" -v:m
         shell: powershell
 
       - name: Find MSIX packages
