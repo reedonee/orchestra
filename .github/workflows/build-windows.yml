@@ -71,7 +71,8 @@ jobs:
           if (-not (Test-Path $msbuild)) {
             $msbuild = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
           }
-          & $msbuild windows/Orchestra.sln -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$(System.DefaultWorkingDirectory)/windows/AppPackages/" -v:m
+          $outDir = "${env:GITHUB_WORKSPACE}/windows/AppPackages/"
+          & $msbuild windows/Orchestra.sln -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$outDir" -v:m
         shell: powershell
 
       - name: Find MSIX packages
