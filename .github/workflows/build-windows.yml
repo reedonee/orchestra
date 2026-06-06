@@ -64,8 +64,14 @@ jobs:
           }
         shell: powershell
 
-      - name: Build Windows
-        run: npm run windows -- --release
+      - name: Build Windows (MSBuild)
+        run: |
+          # Build using MSBuild directly on the solution
+          $msbuild = "${env:ProgramFiles}\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
+          if (-not (Test-Path $msbuild)) {
+            $msbuild = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
+          }
+          & $msbuild windows/Orchestra.sln -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$(System.DefaultWorkingDirectory)/windows/AppPackages/" -v:m
         shell: powershell
 
       - name: Find MSIX packages
