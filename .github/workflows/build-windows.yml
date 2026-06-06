@@ -1,0 +1,81 @@
+name: Build Windows
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+    inputs:
+        configuration:
+          description: 'Build configuration'
+          required: true
+          default: 'Release'
+          type: choice
+          options:
+            - Release
+            - Debug
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            **/node_modules
+            **/.expo
+          key: ${{ runner.os }}-deps-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-deps-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Windows build tools
+        run: |
+          choco install -y visualstudio2022buildtools --version 17.8.0
+          choco install -y windows-sdk-10.1
+        shell: powershell
+
+      - name: Build Windows
+        run: npm run windows -- --configuration ${{ github.event.inputs.configuration || 'Release' }}
+        shell: powershell
+
+      - name: Find MSIX packages
+        run: |
+          Get-ChildItem -Path windows -Filter "*.msix" -Recurse | ForEach-Object { echo "$($_.FullName)" }
+        shell: powershell
+
+      - name: Upload MSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: orchestra-windows-${{ github.event.inputs.configuration || 'Release' }}
+          path: |
+            windows/**/AppPackages/**/*.msix
+            windows/**/AppPackages/**/*.msixbundle
+          retention-days: 30
+
+      - name: Upload build logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-error-logs
+          path: |
+            **/*.log
+            **/msbuild.binlog
+          retention-days: 7
