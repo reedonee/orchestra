@@ -53,7 +53,7 @@ jobs:
         shell: powershell
 
       - name: Build Windows
-        run: npm run windows -- --configuration ${{ github.event.inputs.configuration || 'Release' }}
+        run: npm run windows -- --release
         shell: powershell
 
       - name: Find MSIX packages
