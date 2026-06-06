@@ -1,0 +1,67 @@
+# 🚀 RUN NOW
+
+## Web (Fastest)
+```bash
+npm run web
+```
+**Result:** Browser opens to http://localhost:19006 in ~30 seconds
+
+## Android (If Available)
+```bash
+npm run android
+```
+**Result:** App runs on emulator/device in ~2–5 minutes
+
+## Windows (Requires Setup First)
+```bash
+npm run windows
+```
+**Prerequisites:** See `WINDOWS_SETUP.md` (Visual Studio 2022 + .NET SDK 8.0)
+
+---
+
+## Copy This If You Want Windows
+
+Save this as a file and run as Administrator in PowerShell:
+
+```powershell
+# Enable Developer Mode
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" /v AllowDevelopmentWithoutDevLicense /t REG_DWORD /d 1 /f
+
+# Enable Long Paths
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
+
+# Install .NET SDK 8.0
+winget install Microsoft.DotNet.SDK.8 -e -s winget
+
+# Install Visual Studio 2022 Community
+winget install --id Microsoft.VisualStudio.2022.Community -e
+
+# Configure Visual Studio for React Native Windows
+PowerShell -ExecutionPolicy Bypass -File "$PSScriptRoot\node_modules\react-native-windows\scripts\rnw-dependencies.ps1" -Install
+
+Write-Host "Done! Run: npm run windows" -ForegroundColor Green
+```
+
+**Time:** 60 minutes (mostly waiting for downloads/installs)
+
+---
+
+## Test Right Now (No Setup)
+
+```bash
+npm run web
+```
+
+Then in the app:
+1. Click "📦 Load Sample"
+2. Paste Gemini API key
+3. Click "▶️ Execute"
+4. Watch parallel task execution!
+
+---
+
+**Questions?** See:
+- `WINDOWS_SETUP.md` — Windows prerequisites + auto-install
+- `TESTING_ALTERNATIVES.md` — Web/Android details
+- `FIXED_WINDOWS_ISSUE.md` — What I fixed and why
