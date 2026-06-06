@@ -1,0 +1,669 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\Orchestra.vcxproj": {}
+  },
+  "projects": {
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj",
+        "projectName": "ReactNativeAsyncStorage",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj"
+              }
+            }
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "Microsoft.UI.Xaml": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "Microsoft.Windows.CppWinRT": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.230706.1, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj",
+        "projectName": "RNScreens",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj"
+              }
+            }
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "Microsoft.UI.Xaml": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "Microsoft.Windows.CppWinRT": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.230706.1, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Common\\Common.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Common\\Common.vcxproj",
+        "projectName": "Common",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Common\\Common.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {}
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "Microsoft.Windows.CppWinRT": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.230706.1, )"
+            },
+            "boost": {
+              "target": "Package",
+              "version": "[1.83.0, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\fmt\\fmt.vcxproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\fmt\\fmt.vcxproj",
+        "projectName": "fmt",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\fmt\\fmt.vcxproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native"
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj",
+        "projectName": "Folly",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\fmt\\fmt.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\fmt\\fmt.vcxproj"
+              }
+            }
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "boost": {
+              "target": "Package",
+              "version": "[1.83.0, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj",
+        "projectName": "Microsoft.ReactNative",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Common\\Common.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Common\\Common.vcxproj"
+              },
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj"
+              },
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\ReactCommon\\ReactCommon.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\ReactCommon\\ReactCommon.vcxproj"
+              }
+            }
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "Microsoft.JavaScript.Hermes": {
+              "target": "Package",
+              "version": "[0.1.23, )"
+            },
+            "Microsoft.UI.Xaml": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "Microsoft.Windows.CppWinRT": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.230706.1, )"
+            },
+            "boost": {
+              "target": "Package",
+              "version": "[1.83.0, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\ReactCommon\\ReactCommon.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\ReactCommon\\ReactCommon.vcxproj",
+        "projectName": "ReactCommon",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\ReactCommon\\ReactCommon.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\ReactCommon\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Folly\\Folly.vcxproj"
+              }
+            }
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "boost": {
+              "target": "Package",
+              "version": "[1.83.0, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\Orchestra.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\Orchestra.vcxproj",
+        "projectName": "Orchestra",
+        "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\Orchestra.vcxproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "native"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/ms/react-native/_packaging/react-native-public/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "native": {
+            "framework": "native",
+            "projectReferences": {
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj"
+              },
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj"
+              },
+              "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj": {
+                "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj"
+              }
+            }
+          }
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true"
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "native": {
+          "framework": "native",
+          "dependencies": {
+            "Microsoft.JavaScript.Hermes": {
+              "target": "Package",
+              "version": "[0.1.23, )"
+            },
+            "Microsoft.UI.Xaml": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "Microsoft.Windows.CppWinRT": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.230706.1, )"
+            }
+          },
+          "imports": [
+            "uap10.0.17763",
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

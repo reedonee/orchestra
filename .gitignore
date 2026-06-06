@@ -1,0 +1,18 @@
+.eslintrc.js
+.eslintignore
+.gitignore
+.watchmanconfig
+__tests__
+android/
+.gradle/
+.idea
+node_modules/
+# windows/ - COMMITTED for EAS/GitHub Actions builds
+.ruby-version
+*.ipa
+*.xcarchive
+lib/
+coverage/
+.jest/
+build/
+.bundle/
