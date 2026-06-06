@@ -52,6 +52,17 @@ jobs:
           choco install -y windows-sdk-10.1
         shell: powershell
 
+      - name: Install React Native Windows dependencies
+        run: |
+          # Install RNW dependencies (requires admin)
+          $scriptPath = "node_modules\react-native-windows\scripts\rnw-dependencies.ps1"
+          if (Test-Path $scriptPath) {
+            & $scriptPath -InstallMSIXSupport
+          } else {
+            Write-Warning "rnw-dependencies.ps1 not found at $scriptPath"
+          }
+        shell: powershell
+
       - name: Build Windows
         run: npm run windows -- --release
         shell: powershell
