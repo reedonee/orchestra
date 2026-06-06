@@ -27,6 +27,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Setup MSBuild (Microsoft official)
+        uses: microsoft/setup-msbuild@v2
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -64,35 +67,18 @@ jobs:
           }
         shell: powershell
 
-      - name: Find MSBuild with vswhere
-        id: msbuild
-        run: |
-          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
-          if (Test-Path $vswhere) {
-            $msbuild = & $vswhere -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\Current\Bin\MSBuild.exe
-            if ($msbuild) {
-              echo "path=$msbuild" >> $env:GITHUB_OUTPUT
-            }
-          }
-        shell: powershell
-
       - name: Build Windows (MSBuild)
         run: |
-          $msbuild = "${{ steps.msbuild.outputs.path }}"
-          if (-not $msbuild -or -not (Test-Path $msbuild)) {
-            Write-Error "MSBuild not found!"
-            exit 1
-          }
           $outDir = "${env:GITHUB_WORKSPACE}/windows/AppPackages/"
           New-Item -ItemType Directory -Force -Path $outDir | Out-Null
-          # Use forward slashes and verify file exists
+          # Use exact case from repo: Orchestra.sln
           $slnPath = "${env:GITHUB_WORKSPACE}/windows/Orchestra.sln"
           if (-not (Test-Path $slnPath)) {
             Write-Error "Solution file not found at: $slnPath"
             Get-ChildItem -Path "${env:GITHUB_WORKSPACE}/windows/" -Recurse | Where-Object { $_.Extension -eq '.sln' } | ForEach-Object { Write-Host "Found: $($_.FullName)" }
             exit 1
           }
-          & $msbuild $slnPath -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$outDir" -v:m
+          msbuild $slnPath -p:Configuration=Release -p:Platform=x64 -p:AppxBundle=Always -p:AppxPackageDir="$outDir" -v:m
         shell: powershell
 
       - name: Find MSIX packages
