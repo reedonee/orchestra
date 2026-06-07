@@ -1,61 +1,91 @@
 # EAS Build Setup for Orchestra
 
-## One-time Setup (Run These Commands)
+## IMPORTANT: Windows Builds via GitHub Actions
+
+**Current EAS CLI (v20.1.0) does NOT support Windows builds via `--platform` flag.**
+The `--platform` only accepts `android|ios|all` - Windows is excluded.
+
+**Use GitHub Actions for Windows builds** (see `.github/workflows/build-windows.yml`).
+
+---
+
+## What Works in EAS
+
+| Platform | EAS Support |
+|----------|-------------|
+| Android  | Full support |
+| iOS      | Full support |
+| Web      | Via `npx expo export --platform web` |
+| Windows  | Not via CLI flag |
+
+---
+
+## Quick EAS Setup (Android/iOS only)
 
 ```bash
-# 1. Login to Expo (creates account if needed)
+# 1. Login
 npx eas-cli login
 
-# 2. Initialize EAS project (creates eas.json + links project)
-npx eas-cli project:init
+# 2. Project already linked! (c74e6f3e-a884-4bcc-bea8-ca8cbfd3460e)
 
-# 3. Build for Windows (specify platform via flag, not in config)
-npx eas-cli build --platform windows --profile production
+# 3. Build Android/iOS
+npx eas-cli build --platform android --profile production
+npx eas-cli build --platform ios --profile production
 ```
 
-## What's Configured
+---
 
-- ✅ `eas.json` - Build profiles (development, preview, production)
-- ✅ `app.config.js` - Complete Windows config (package name, versions, etc.)
-- ✅ `package.json` - All dependencies ready
+## Windows Build: Use GitHub Actions (Recommended)
 
-## How Windows Build Works
+### Setup (one-time):
 
-You specify platform **at build time** via `--platform windows`, not in eas.json. The `app.config.js` already has the Windows config that EAS reads.
+```bash
+# 1. Push to GitHub
+git remote add origin https://github.com/YOUR_USERNAME/orchestra.git
+git push -u origin main
 
-## Build Output
+# 2. Go to GitHub > Settings > Actions > General
+#    Enable "Allow all actions and reusable workflows"
 
-After build completes (~10-15 min):
-- MSIX package in EAS dashboard → download
-- Or auto-upload to Microsoft Store (configure `storeId` in eas.json submit section)
+# 3. Trigger build:
+#    GitHub > Actions > "Build Windows" > Run workflow
+```
 
-## Free Tier Limits
+### What the workflow does:
+- Windows runner with VS Build Tools 2022
+- Windows SDK 10.1
+- Caches node_modules for speed
+- Builds Release MSIX package
+- Uploads artifact
 
-- 30 builds/month (includes Windows)
-- 2 GB artifact storage
-- 1 concurrent build
+---
 
-## Need Icons?
+## Local Windows Build (if you want to try)
 
-Replace placeholder files in `assets/` with real icons:
-- `icon.png` (1024×1024)
-- `splash.png` (2732×2732)  
-- `adaptive-icon.png` (1024×1024)
-- `favicon.png` (48×48)
+Requires VS Build Tools 2022 + Windows SDK:
+```bash
+# Install prerequisites (run in Admin PowerShell)
+choco install -y visualstudio2022buildtools windows-sdk-10.1
 
-## Troubleshooting
+# Build
+npm run windows -- --configuration Release
+```
 
-| Issue | Fix |
-|-------|-----|
-| Build hangs | Check EAS dashboard logs |
-| Windows SDK missing | EAS provides it automatically |
-| Metro bundler error | `npx expo install --fix` |
-| Version conflicts | Clear caches: `npx expo install --fix && rm -rf .expo` |
+---
 
-## After First Build
+## Project Status
 
-1. Download `.msix` from EAS dashboard
-2. Double-click to install locally
-3. Or submit to Store: `npx eas-cli submit --platform windows`
+- Linked to EAS: @reedonee/orchestra (ID: c74e6f3e-a884-4bcc-bea8-ca8cbfd3460e)
+- app.config.js: Windows config ready
+- eas.json: Profiles configured
+- Git repo: Initialized & committed
+- GitHub Actions: Windows workflow ready
 
-Done! 🚀
+---
+
+## Next Steps
+
+1. Push to GitHub - triggers Windows build automatically
+2. Wait ~10-15 min - download MSIX from Actions artifacts
+3. Install & test on your Windows machine
+4. Optional: Submit to Microsoft Store via EAS (when supported)

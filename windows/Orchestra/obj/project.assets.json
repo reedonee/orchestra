@@ -17012,11 +17012,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\Orchestra.vcxproj",
+      "projectUniqueName": "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\windows\\Orchestra\\Orchestra.vcxproj",
       "projectName": "Orchestra",
-      "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\Orchestra.vcxproj",
+      "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\windows\\Orchestra\\Orchestra.vcxproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\Orchestra\\obj\\",
+      "outputPath": "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\windows\\Orchestra\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "UsingMicrosoftNETSdk": false,
@@ -17024,7 +17024,7 @@
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\windows\\NuGet.Config",
+        "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\windows\\NuGet.Config",
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -17040,14 +17040,14 @@
         "native": {
           "framework": "native",
           "projectReferences": {
-            "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj": {
-              "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj"
+            "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj": {
+              "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\node_modules\\@react-native-async-storage\\async-storage\\windows\\ReactNativeAsyncStorage\\ReactNativeAsyncStorage.vcxproj"
             },
-            "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj": {
-              "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj"
+            "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj": {
+              "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\node_modules\\react-native-screens\\windows\\RNScreens\\RNScreens.vcxproj"
             },
-            "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj": {
-              "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\Orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj"
+            "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj": {
+              "projectPath": "C:\\Users\\hp\\Desktop\\red\\create\\orchestra\\node_modules\\react-native-windows\\Microsoft.ReactNative\\Microsoft.ReactNative.vcxproj"
             }
           }
         }

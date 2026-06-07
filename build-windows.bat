@@ -1,0 +1,3 @@
+@echo off
+call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
+"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe" "C:\Users\hp\Desktop\red\create\orchestra\windows\Orchestra.sln" /p:Configuration=Release /p:Platform=x64 /p:AppxBundle=Always /p:AppxPackageDir="C:\Users\hp\Desktop\red\create\orchestra\windows\AppPackages\" /p:PlatformToolset=v144 -v:m

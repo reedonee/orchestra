@@ -1,5 +1,10 @@
 {
   "name": "Orchestra",
   "displayName": "Orchestra",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "expo": {
+    "android": {
+      "versionCode": 2
+    }
+  }
 }
