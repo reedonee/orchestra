@@ -100,7 +100,6 @@ jobs:
 
       - name: Create self-signed certificate for signing
         run: |
-          # Create certificate with Legacy CSP (not CNG) for SignTool compatibility
           $cert = New-SelfSignedCertificate `
             -Type CodeSigningCert `
             -Subject "CN=Orchestra" `
@@ -111,39 +110,9 @@ jobs:
             -FriendlyName "Orchestra CI Cert" `
             -NotAfter (Get-Date).AddYears(1) `
             -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3") `
-            -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-            -KeyExportPolicy Exportable
+            -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider"
           $cert | Export-PfxCertificate -FilePath "orchestra-ci.pfx" -Password (ConvertTo-SecureString -String "ci-temp-pass" -AsPlainText -Force)
           echo "CERT_THUMBPRINT=$($cert.Thumbprint)" >> $env:GITHUB_ENV
-        shell: powershell
-
-      - name: Sign MSIX packages
-        run: |
-          # Use the specific signtool.exe path for the Windows 2022 runner
-          $signtoolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe"
-          
-          if (-not (Test-Path $signtoolPath)) {
-            Write-Error "signtool.exe not found at expected path: $signtoolPath"
-            exit 1
-          }
-          Write-Host "Using signtool: $signtoolPath"
-          
-          # Sign individual MSIX packages
-          Get-ChildItem -Path windows -Filter "*.msix" -Recurse | ForEach-Object {
-            Write-Host "Signing $($_.FullName)..."
-            # Using basic signing command
-            & $signtoolPath sign /fd SHA256 /f "orchestra-ci.pfx" /p "ci-temp-pass" /tr http://timestamp.digicert.com $_.FullName
-            if ($LASTEXITCODE -ne 0) {
-              Write-Error "Failed to sign $($_.FullName)"
-              exit 1
-            }
-          }
-        shell: powershell
-      - name: Re-bundle signed packages (if needed)
-        run: |
-          # The AppxBundle=Always should have created a bundle that references the signed packages
-          # Verify the bundle exists
-          Get-ChildItem -Path windows -Filter "*.msixbundle" -Recurse | ForEach-Object { Write-Host "Bundle found: $($_.FullName)" }
         shell: powershell
 
       - name: Export certificate for installation
