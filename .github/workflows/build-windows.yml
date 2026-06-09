@@ -116,7 +116,36 @@ jobs:
 
       - name: Sign MSIX packages
         run: |
-          Write-Host "Skipping code signing for now due to path issues"
+          # Find signtool in the Windows SDK
+          $signtoolPath = Get-Command signtool.exe -ErrorAction SilentlyContinue
+          if (-not $signtoolPath) {
+            $signtoolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe"
+            if (-not (Test-Path $signtoolPath)) {
+              $signtoolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64\signtool.exe"
+            }
+          }
+          if (-not (Test-Path $signtoolPath)) {
+            Write-Error "signtool.exe not found!"
+            exit 1
+          }
+          Write-Host "Using signtool: $signtoolPath"
+          
+          # Sign individual MSIX packages (the bundle references these)
+          Get-ChildItem -Path windows -Filter "*.msix" -Recurse | ForEach-Object {
+            Write-Host "Signing $($_.FullName)..."
+            & $signtoolPath sign /fd SHA256 /f "orchestra-ci.pfx" /p "ci-temp-pass" /tr http://timestamp.digicert.com /td SHA256 $_.FullName
+            if ($LASTEXITCODE -ne 0) {
+              Write-Error "Failed to sign $($_.FullName)"
+              exit 1
+            }
+          }
+        shell: powershell
+
+      - name: Re-bundle signed packages (if needed)
+        run: |
+          # The AppxBundle=Always should have created a bundle that references the signed packages
+          # Verify the bundle exists
+          Get-ChildItem -Path windows -Filter "*.msixbundle" -Recurse | ForEach-Object { Write-Host "Bundle found: $($_.FullName)" }
         shell: powershell
 
       - name: Export certificate for installation
