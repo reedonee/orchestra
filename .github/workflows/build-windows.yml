@@ -119,31 +119,26 @@ jobs:
 
       - name: Sign MSIX packages
         run: |
-          # Find signtool in the Windows SDK
-          $signtoolPath = Get-Command signtool.exe -ErrorAction SilentlyContinue
-          if (-not $signtoolPath) {
-            $signtoolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe"
-            if (-not (Test-Path $signtoolPath)) {
-              $signtoolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64\signtool.exe"
-            }
-          }
+          # Use the specific signtool.exe path for the Windows 2022 runner
+          $signtoolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe"
+          
           if (-not (Test-Path $signtoolPath)) {
-            Write-Error "signtool.exe not found!"
+            Write-Error "signtool.exe not found at expected path: $signtoolPath"
             exit 1
           }
           Write-Host "Using signtool: $signtoolPath"
           
-          # Sign individual MSIX packages (the bundle references these)
+          # Sign individual MSIX packages
           Get-ChildItem -Path windows -Filter "*.msix" -Recurse | ForEach-Object {
             Write-Host "Signing $($_.FullName)..."
-            & $signtoolPath sign /fd SHA256 /f "orchestra-ci.pfx" /p "ci-temp-pass" /tr http://timestamp.digicert.com /td SHA256 $_.FullName
+            # Using basic signing command
+            & $signtoolPath sign /fd SHA256 /f "orchestra-ci.pfx" /p "ci-temp-pass" /tr http://timestamp.digicert.com $_.FullName
             if ($LASTEXITCODE -ne 0) {
               Write-Error "Failed to sign $($_.FullName)"
               exit 1
             }
           }
         shell: powershell
-
       - name: Re-bundle signed packages (if needed)
         run: |
           # The AppxBundle=Always should have created a bundle that references the signed packages
