@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     timeout-minutes: 120
     permissions:
       contents: read
@@ -87,8 +87,8 @@ jobs:
             Write-Error "Solution file not found at: $slnPath"
             exit 1
           }
-          # Use 64-bit MSBuild, limit parallelism to 1 to avoid OOM on VirtualTextViewManager.cpp
-          & "${env:ProgramFiles(x86)}/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/amd64/MSBuild.exe" $slnPath `
+          # Use the MSBuild from the PATH (setup-msbuild adds it) with 64-bit preference
+          msbuild $slnPath `
             /p:Configuration="Release" `
             /p:Platform="x64" `
             /p:AppxBundle=Always `
