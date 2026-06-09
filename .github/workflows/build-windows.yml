@@ -17,7 +17,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     permissions:
       contents: read
 
@@ -87,12 +87,15 @@ jobs:
             Write-Error "Solution file not found at: $slnPath"
             exit 1
           }
-          msbuild $slnPath `
+          # Use 64-bit MSBuild, limit parallelism to 1 to avoid OOM on VirtualTextViewManager.cpp
+          & "${env:ProgramFiles(x86)}/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/amd64/MSBuild.exe" $slnPath `
             /p:Configuration="Release" `
             /p:Platform="x64" `
             /p:AppxBundle=Always `
             /p:AppxPackageDir="${env:GITHUB_WORKSPACE}/windows/AppPackages/" `
-            -v:m
+            /p:PreferredToolArchitecture=x64 `
+            /maxcpucount:1 `
+            /verbosity:minimal
         shell: powershell
 
       - name: Create self-signed certificate for signing
