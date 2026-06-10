@@ -131,10 +131,17 @@ jobs:
           Write-Host "signtool=$signtoolPath"
           Get-ChildItem -Path windows -Filter "*.msix" -Recurse | ForEach-Object {
             Write-Host "Signing $($_.FullName)..."
-            & $signtoolPath sign /fd SHA256 /f "orchestra-ci.pfx" /p "ci-temp-pass" $_.FullName
+            & $signtoolPath sign /fd SHA1 /f "orchestra-ci.pfx" /p "ci-temp-pass" $_.FullName
             $code = $LASTEXITCODE
             Write-Host "Signing exit code=$code for $($_.FullName)"
           }
+        shell: powershell
+
+      - name: Re-bundle signed packages (if needed)
+        run: |
+          # The AppxBundle path from MSBuild uses version-specific output dirs.
+          # The Upload step already captures root-level AppPackages outputs; this just logs what would be bundled.
+          Get-ChildItem -Path windows -Filter "*.msixbundle" -Recurse | ForEach-Object { Write-Host "Bundle found: $($_.FullName)" }
         shell: powershell
 
       - name: Export certificate for installation
