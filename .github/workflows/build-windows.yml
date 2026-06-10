@@ -131,7 +131,7 @@ jobs:
           Write-Host "signtool=$signtoolPath"
           Get-ChildItem -Path windows -Filter "*.msix" -Recurse | ForEach-Object {
             Write-Host "Signing $($_.FullName)..."
-            & $signtoolPath sign /fd SHA1 /f "orchestra-ci.pfx" /p "ci-temp-pass" $_.FullName
+            & $signtoolPath sign /fd SHA256 /f "orchestra-ci.pfx" /p "ci-temp-pass" $_.FullName
             $code = $LASTEXITCODE
             Write-Host "Signing exit code=$code for $($_.FullName)"
           }

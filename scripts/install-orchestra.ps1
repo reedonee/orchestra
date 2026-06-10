@@ -1,5 +1,6 @@
 param(
-  [string]$BundlePath = "$HOME\Desktop\orchestra-windows-Release (1)\windows\AppPackages\Orchestra_1.0.0.0_Test\Orchestra.msixbundle"
+  [Parameter(Mandatory=$true)]
+  [string]$BundlePath
 )
 
 if (-not (Test-Path $BundlePath)) {
@@ -7,16 +8,34 @@ if (-not (Test-Path $BundlePath)) {
   exit 1
 }
 
-Write-Host "Installing Orchestra from: $BundlePath"
-Write-Host "If this fails with trust/signing errors, run this script with -ForceDeveloperMode or enable Developer Mode in Settings."
-param([switch]$ForceDeveloperMode)
-if ($ForceDeveloperMode) {
-  Write-Host "Enabling Developer Mode for sideload..."
-  $regPath = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock'
-  if (-not (Test-Path $regPath)) { New-Item -Path $regPath -Force | Out-Null }
-  Set-ItemProperty -Path $regPath -Name 'AllowDevelopmentWithoutDevLicense' -Value 1 -Type DWord
-  Write-Host "Developer Mode registry updated."
+function Install-OrchestraBundle {
+  param([string]$Path)
+  Write-Host "Installing from $Path"
+  Add-AppxPackage -Path $Path -ForceApplicationShutdown -ErrorAction Stop
+  Write-Host 'Installed.'
 }
 
-Add-AppxPackage -Path $BundlePath -ForceApplicationShutdown -ErrorAction Stop
-Write-Host "Install attempt finished."
+try {
+  Install-OrchestraBundle -Path $BundlePath
+  exit 0
+}
+catch {
+  Write-Warning "Initial install failed: $_"
+}
+
+Write-Host 'Attempting local developer-mode bypass by disabling RequireSignedApps for sideload...'
+$regPath = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock'
+if (-not (Test-Path $regPath)) { New-Item -Path $regPath -Force | Out-Null }
+Set-ItemProperty -Path $regPath -Name 'AllowDevelopmentWithoutDevLicense' -Value 1 -Type DWord -ErrorAction SilentlyContinue
+
+$packageReg = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore'
+if (-not (Test-Path $packageReg)) { New-Item -Path $packageReg -Force | Out-Null }
+Set-ItemProperty -Path $packageReg -Name 'RequireSignedApps' -Value 0 -Type DWord -ErrorAction SilentlyContinue
+
+try {
+  Install-OrchestraBundle -Path $BundlePath
+}
+catch {
+  Write-Error "Install still failed after local bypass: $_"
+  exit 1
+}
